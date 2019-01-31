@@ -93,15 +93,20 @@ public class TicTacToeModel {
            other player before returning TRUE.  Otherwise, return FALSE. */
         
         //Worked on 1/28 beleive it is finished
-        if (isValidSquare(row, col) && !isSquareMarked(row, col)){
-            if (xTurn) {
-                board[row][col] = Mark.X;
+        if (isValidSquare(row, col)){
+            if (!isSquareMarked(row, col)) {
+                if (xTurn) {
+                    board[row][col] = Mark.X;
+                }
+                else {
+                    board[row][col] = Mark.O;
+                }
+                xTurn = !xTurn;
+                return true;
             }
             else {
-                board[row][col] = Mark.O;
+                return false;
             }
-            xTurn = !xTurn;
-            return true;
         }
         else{
             return false;
@@ -112,7 +117,7 @@ public class TicTacToeModel {
         
         /* Return TRUE if the specified location is within the bounds of the board */
         
-        if ((row >= getWidth() && col >= getWidth()) && (row >= 0 && col >= 0)){
+        if ((row >= getWidth() || col >= getWidth()) || (row < 0 || col < 0)){
             return false;
         }
         else {
