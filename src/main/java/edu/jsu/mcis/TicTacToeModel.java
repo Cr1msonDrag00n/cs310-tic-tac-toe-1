@@ -92,7 +92,6 @@ public class TicTacToeModel {
            toggle "xTurn" from true to false (or vice-versa) to switch to the
            other player before returning TRUE.  Otherwise, return FALSE. */
         
-        //Worked on 1/28 beleive it is finished
         if (isValidSquare(row, col)){
             if (!isSquareMarked(row, col)) {
                 if (xTurn) {
@@ -245,7 +244,6 @@ public class TicTacToeModel {
     public boolean isGameover() {
         
         /* Return TRUE if the game is over */
-        
         return (Result.NONE != getResult());
         
     }
